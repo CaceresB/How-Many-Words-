@@ -1,19 +1,93 @@
 [[package]]
 category = "main"
+description = "Screen-scraping library"
+name = "beautifulsoup4"
+optional = false
+python-versions = "*"
+version = "4.4.0"
+
+[package.extras]
+html5lib = ["html5lib"]
+lxml = ["lxml"]
+
+[[package]]
+category = "main"
+description = "Blazingly fast cleaning swear words (and their leetspeak) in strings"
+name = "better-profanity"
+optional = false
+python-versions = "==3.*"
+version = "0.7.0"
+
+[[package]]
+category = "main"
+description = "A simple wrapper around optparse for powerful command line utilities."
+name = "click"
+optional = false
+python-versions = "*"
+version = "3.3"
+
+[[package]]
+category = "main"
 description = "Python bindings for the Enchant spellchecking system"
 name = "pyenchant"
 optional = false
-python-versions = ">=3.5"
-version = "3.2.0"
+python-versions = "*"
+version = "1.6.6"
+
+[[package]]
+category = "main"
+description = "Python HTTP for Humans."
+name = "requests"
+optional = false
+python-versions = "*"
+version = "2.7.0"
+
+[package.extras]
+security = ["pyopenssl", "ndg-httpsclient", "pyasn1"]
+
+[[package]]
+category = "main"
+description = "Check a site for spelling errors"
+name = "sitechantment"
+optional = false
+python-versions = "*"
+version = "0.1.0"
+
+[package.dependencies]
+beautifulsoup4 = "4.4.0"
+click = "3.3"
+pyenchant = "1.6.6"
+requests = "2.7.0"
 
 [metadata]
-content-hash = "6c1624820363896e2b36edb88c3608d1ecb4b6a63e1811e373b75c94824d3e30"
+content-hash = "cad39f7626757d4139649cb14c9a8438b63f2b28bc1e6720f2c8e5951ad6f4ff"
 python-versions = "^3.8"
 
 [metadata.files]
+beautifulsoup4 = [
+    {file = "beautifulsoup4-4.4.0-py2-none-any.whl", hash = "sha256:b702721f8722c94fbd2fbdfb42183c4b5b3d8871186b92a8898e2dfe4869aadb"},
+    {file = "beautifulsoup4-4.4.0-py3-none-any.whl", hash = "sha256:a43204aaee0ef590a6073470f094564ddef6aca5f68c143c99262f8b4923af8c"},
+    {file = "beautifulsoup4-4.4.0.tar.gz", hash = "sha256:fad91da88f69438b9ba939ab1b2cabaa31b1d914f1cccb4bb157a993ed2917f6"},
+]
+better-profanity = [
+    {file = "better_profanity-0.7.0-py3-none-any.whl", hash = "sha256:bd4c529ea6aa2db1aaa50524be1ed14d0fe5c664f1fd88c8bc388c7e9f9f00e8"},
+    {file = "better_profanity-0.7.0.tar.gz", hash = "sha256:8a6fdc8606d7471e7b5f6801917eca98ec211098262e82f62da4f5de3a73145b"},
+]
+click = [
+    {file = "click-3.3-py2.py3-none-any.whl", hash = "sha256:c9972f4d2b80575bb9112500cfec750eaf4f04e07abda4b2c44e453cde65ee77"},
+    {file = "click-3.3.tar.gz", hash = "sha256:f79c8c04d7eb50071bcad67fd23f3c10fab6c72d56857adf848367806845d6e5"},
+]
 pyenchant = [
-    {file = "pyenchant-3.2.0-py3-none-any.whl", hash = "sha256:5f5fbf99283136ad0e56660343ec4f16713981e340984ce9487de756fce022c6"},
-    {file = "pyenchant-3.2.0-py3-none-win32.whl", hash = "sha256:f649f36fa90cb950d10b1a70bca50be7799ec759aa478353f08dcef579c097ee"},
-    {file = "pyenchant-3.2.0-py3-none-win_amd64.whl", hash = "sha256:f22cc6e342d4e6a027296c59ae8ad4d5b2f281da1ecbe0e839a9e5f5d243b33d"},
-    {file = "pyenchant-3.2.0.tar.gz", hash = "sha256:6b97e9a9f132fa7c9029a6635d821ccad67d4980e68186d02c765b4256b6f152"},
+    {file = "pyenchant-1.6.6-py2.py3-none-any.whl", hash = "sha256:2e573566c62eea455b2447b90accc61efed1d2a825dd3dc9285ab914baae92b3"},
+    {file = "pyenchant-1.6.6-py2.py3.cp27.cp26.cp32.cp33.cp34.pp27-none-macosx_10_6_intel.macosx_10_9_intel.whl", hash = "sha256:66f45e71d52e159381a1177b63e25eb419a0acb49b18a7197c0be8110567b8d1"},
+    {file = "pyenchant-1.6.6-py2.py3.cp27.cp26.cp32.cp33.cp34.pp27-none-win32.whl", hash = "sha256:dd6ec7351ee93b65bd3c0bf9b1dbc143d2837cffabf8371bda0d589f471679bc"},
+    {file = "pyenchant-1.6.6.tar.gz", hash = "sha256:25c9d2667d512f8fc4410465fdd2e868377ca07eb3d56e2b6e534a86281d64d3"},
+    {file = "pyenchant-1.6.6.win32.exe", hash = "sha256:fe5fc3e2577d38e2adc0d2c70a92c1e11d4e450f40465a7cf649a5a250b254b9"},
+]
+requests = [
+    {file = "requests-2.7.0-py2.py3-none-any.whl", hash = "sha256:20f976cdce02a42b69ce80e9e03897a51814b36d448b37288546086ebc473146"},
+    {file = "requests-2.7.0.tar.gz", hash = "sha256:398a3db6d61899d25fd4a06c6ca12051b0ce171d705decd7ed5511517b4bb93d"},
+]
+sitechantment = [
+    {file = "sitechantment-0.1.0.tar.gz", hash = "sha256:92b5ef1e5a11dd22c4d161dba724b71ea66bc23bc6a43e6bb42849d1f58bcf15"},
 ]
