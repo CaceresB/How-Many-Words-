@@ -22,7 +22,7 @@ def clearConsole():
 #import PyDictionary
 
 #Dictionary setup
-#dictionary=PyDictionary
+
 
 #Enchant Setup
 d = enchant.Dict("en_US")
@@ -80,7 +80,7 @@ while NewGame:
       print(pGuess)
 
     #print(guesses)
-    print("\nYou have guessed {0} out of {2} words! \n{1}% there ".format(wGuessed, wGuessed*100 / tWords, tWords)) 
+    print("\nYou have guessed {0} out of {2} words! \n{1:.2f}% there ".format(wGuessed, wGuessed*100 / tWords, tWords)) 
     print("Enter 0 to quit")
 
     guess = input("Enter a word you can make from this word (min length 3):\n")
