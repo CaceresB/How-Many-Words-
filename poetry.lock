@@ -20,55 +20,11 @@ version = "0.7.0"
 
 [[package]]
 category = "main"
-description = "Dummy package for Beautiful Soup"
-name = "bs4"
-optional = false
-python-versions = "*"
-version = "0.0.1"
-
-[package.dependencies]
-beautifulsoup4 = "*"
-
-[[package]]
-category = "main"
 description = "A simple wrapper around optparse for powerful command line utilities."
 name = "click"
 optional = false
 python-versions = "*"
 version = "3.3"
-
-[[package]]
-category = "main"
-description = "Backport of the concurrent.futures package from Python 3.2"
-name = "futures"
-optional = false
-python-versions = "*"
-version = "3.1.1"
-
-[[package]]
-category = "main"
-description = "Goslate: Free Google Translate API"
-name = "goslate"
-optional = false
-python-versions = "*"
-version = "1.5.1"
-
-[package.dependencies]
-futures = "*"
-
-[[package]]
-category = "main"
-description = "A real dictionary module for Python"
-name = "pydictionary"
-optional = false
-python-versions = "*"
-version = "2.0.1"
-
-[package.dependencies]
-bs4 = "*"
-click = "*"
-goslate = "*"
-requests = "*"
 
 [[package]]
 category = "main"
@@ -104,7 +60,7 @@ pyenchant = "1.6.6"
 requests = "2.7.0"
 
 [metadata]
-content-hash = "e8968c97057be62ac8ce02b2e2fa04bcb7c1b54edbf0641c38e39b9ecf610af6"
+content-hash = "cad39f7626757d4139649cb14c9a8438b63f2b28bc1e6720f2c8e5951ad6f4ff"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -117,25 +73,9 @@ better-profanity = [
     {file = "better_profanity-0.7.0-py3-none-any.whl", hash = "sha256:bd4c529ea6aa2db1aaa50524be1ed14d0fe5c664f1fd88c8bc388c7e9f9f00e8"},
     {file = "better_profanity-0.7.0.tar.gz", hash = "sha256:8a6fdc8606d7471e7b5f6801917eca98ec211098262e82f62da4f5de3a73145b"},
 ]
-bs4 = [
-    {file = "bs4-0.0.1.tar.gz", hash = "sha256:36ecea1fd7cc5c0c6e4a1ff075df26d50da647b75376626cc186e2212886dd3a"},
-]
 click = [
     {file = "click-3.3-py2.py3-none-any.whl", hash = "sha256:c9972f4d2b80575bb9112500cfec750eaf4f04e07abda4b2c44e453cde65ee77"},
     {file = "click-3.3.tar.gz", hash = "sha256:f79c8c04d7eb50071bcad67fd23f3c10fab6c72d56857adf848367806845d6e5"},
-]
-futures = [
-    {file = "futures-3.1.1-py2-none-any.whl", hash = "sha256:c4884a65654a7c45435063e14ae85280eb1f111d94e542396717ba9828c4337f"},
-    {file = "futures-3.1.1-py3-none-any.whl", hash = "sha256:3a44f286998ae64f0cc083682fcfec16c406134a81a589a5de445d7bb7c2751b"},
-    {file = "futures-3.1.1.tar.gz", hash = "sha256:51ecb45f0add83c806c68e4b06106f90db260585b25ef2abfcda0bd95c0132fd"},
-]
-goslate = [
-    {file = "goslate-1.5.1-py2.7.egg", hash = "sha256:c9b7855f0984ae5012b8b8f06511e81ba197ec7b634756413b2f503554c535aa"},
-    {file = "goslate-1.5.1.tar.gz", hash = "sha256:dee7cf08fd7d744fbb3477d28ea6a98a11b363c138d7577b4b097f517581f864"},
-]
-pydictionary = [
-    {file = "PyDictionary-2.0.1-py3-none-any.whl", hash = "sha256:95b91cf26cc9d859f6c76be2a8c0d864819d4826f21f1709619bda02a3b4e1dc"},
-    {file = "PyDictionary-2.0.1.tar.gz", hash = "sha256:c250815c238ec042098918764e5b743955df9612a129ae5218d5f37ddd0f9634"},
 ]
 pyenchant = [
     {file = "pyenchant-1.6.6-py2.py3-none-any.whl", hash = "sha256:2e573566c62eea455b2447b90accc61efed1d2a825dd3dc9285ab914baae92b3"},

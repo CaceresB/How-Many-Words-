@@ -8,7 +8,6 @@ authors = ["Your Name <you@example.com>"]
 python = "^3.8"
 sitechantment = "^0.1.0"
 better-profanity = "^0.7.0"
-PyDictionary = "^2.0.1"
 
 [tool.poetry.dev-dependencies]
 

@@ -48,6 +48,7 @@ def words(letters):
     if wList[-1][-1]==letters: 
       wList[-1].pop()
       gList[-1].pop()
+      numWords-=1
   return wList,gList, numWords
 
 
@@ -69,7 +70,7 @@ while NewGame:
   wGuessed = 0
   tGuessed = [0]*len(answers)
   Continue=True
-  while Continue:
+  while Continue and wGuessed!=tWords:
     print("\033[H\033[J",end="")
     print(word)
     for i in range(len(max(answers,key=len))):
@@ -101,13 +102,19 @@ while NewGame:
               pAnswers+=j[i]+"\t\t"
           print(pAnswers)
         Continue= False
-        NG = input("Try a new word?").capitalize()
-        if NG== "N" or NG== "NO":
-          NewGame=False
+        
 
       else:
         print("Not quite!")
     
     sleep(.25)
 
+  
+  if wGuessed==tWords:
+    print("Congrats you guesed them all!")
+    sleep(.5)
+  
+  NG = input("Try a new word?").capitalize()
+  if NG== "N" or NG== "NO":
+    NewGame=False
   clearConsole()
