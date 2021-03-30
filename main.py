@@ -97,9 +97,12 @@ while NewGame:
       if guess=="0":
         for i in range(len(max(answers,key=len))):
           pAnswers = ""
-          for j in answers:
-            if i<len(j):
-              pAnswers+=j[i]+"\t\t"
+          for j in range(len(answers)):
+            if i<len(answers[j]):
+              if answers[j][i] not in guesses[j]:
+                pAnswers+=answers[j][i]+"\t\t"
+              else:
+                pAnswers+="\t\t"
           print(pAnswers)
         Continue= False
         
