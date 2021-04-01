@@ -83,9 +83,19 @@ while NewGame:
     #print(guesses)
     print("\nYou have guessed {0} out of {2} words! \n{1:.2f}% there ".format(wGuessed, wGuessed*100 / tWords, tWords)) 
     print("Enter 0 to quit")
+    print("Enter 1 for a hint")
 
     guess = input("Enter a word you can make from this word (min length 3):\n")
-    if guess in guesses[len(guess)-3]:
+    if guess == "1":
+      i = randint(0,len(answers))
+      j = randint(0, len(answers[i]))
+      while answers[i][j] in guesses[i]:
+        i = randint(0,len(answers))
+        j = randint(0, len(answers[i]))
+      guesses[i][tGuessed[i]] = answers[i][j]
+      tGuessed[i]+= 1
+      wGuessed+=1
+    elif guess in guesses[len(guess)-3]:
       print("You tried this already!")
     elif guess in answers[len(guess)-3]:
       guesses[len(guess)-3][tGuessed[len(guess)-3]] = guess
