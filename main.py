@@ -1,14 +1,14 @@
 #Game to guess all of the words in another word
 
 #See what percentage you get
-#import os
+import os
 #os.system("pip install pyenchant")
 #os.system("pip install PyDictionary")
 import enchant
 from random import randint
 from itertools import permutations
 from better_profanity import profanity
-import os
+#import os
 from time import sleep
 
 def clearConsole():
@@ -20,8 +20,8 @@ def clearConsole():
 
 
 #import PyDictionary
-
-#Dictionary setup
+#from PyDictionary import PyDictionary
+#dictionary=PyDictionary()
 
 
 #Enchant Setup
@@ -42,13 +42,17 @@ def words(letters):
         twList += [temp]
         tgList += ["_"*n]
         numWords+=1
-    wList+=[twList]
-    gList+=[tgList]
+    if twList != []:
+      wList+=[twList]
+      gList+=[tgList]
   if len(wList[-1])>0:
-    if wList[-1][-1]==letters: 
-      wList[-1].pop()
+    if letters in wList[-1]: 
+      wList[-1].remove(letters)
       gList[-1].pop()
       numWords-=1
+      if [] in wList:
+        wList.remove([])
+        gList.remove([])
   return wList,gList, numWords
 
 
@@ -64,17 +68,21 @@ while NewGame:
   word = my_list[randint(1, len(my_list))]
   while d.check(word)!= True and profanity.contains_profanity(word)!=True:
     word = my_list[randint(1, len(my_list))]
-  #dictionary.meaning(word)
+
   print(word)
+  
   answers, guesses, tWords = words(word)
   wGuessed = 0
   tGuessed = [0]*len(answers)
   Continue=True
+  hints = 3
   while Continue and wGuessed!=tWords:
     print("\033[H\033[J",end="")
     print(word)
-    for i in range(len(max(answers,key=len))):
+    mLetters = len(max(answers,key=len))
+    for i in range(mLetters/2):
       pGuess = ""
+      count = 0
       for j in guesses:
         if i<len(j):
           pGuess+=j[i]+"\t\t"
@@ -83,20 +91,24 @@ while NewGame:
     #print(guesses)
     print("\nYou have guessed {0} out of {2} words! \n{1:.2f}% there ".format(wGuessed, wGuessed*100 / tWords, tWords)) 
     print("Enter 0 to quit")
-    print("Enter 1 for a hint")
+    print("Enter 1 for a hint ({0} left)".format(hints))
 
     guess = input("Enter a word you can make from this word (min length 3):\n")
     if guess == "1":
-      i = randint(0,len(answers))
-      j = randint(0, len(answers[i]))
-      while answers[i][j] in guesses[i]:
-        i = randint(0,len(answers))
-        j = randint(0, len(answers[i]))
-      guesses[i][tGuessed[i]] = answers[i][j]
-      tGuessed[i]+= 1
-      wGuessed+=1
+      if hints>0:
+        i = randint(0,len(answers)-1)
+        j = randint(0, len(answers[i])-1)
+        while answers[i][j] in guesses[i]:
+          i = randint(0,len(answers)-1)
+          j = randint(0, len(answers[i])-1)
+        guesses[i][tGuessed[i]] = answers[i][j]
+        tGuessed[i]+= 1
+        wGuessed+=1
+        hints-=1
+      else:
+        print("Out of hints")
     elif guess in guesses[len(guess)-3]:
-      print("You tried this already!")
+      print("You guessed this already!")
     elif guess in answers[len(guess)-3]:
       guesses[len(guess)-3][tGuessed[len(guess)-3]] = guess
       wGuessed += 1
@@ -131,3 +143,5 @@ while NewGame:
   if NG== "N" or NG== "NO":
     NewGame=False
   clearConsole()
+
+  
