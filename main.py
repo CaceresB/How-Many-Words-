@@ -10,6 +10,8 @@ from itertools import permutations
 from better_profanity import profanity
 #import os
 from time import sleep
+from math import ceil
+from tabulate import tabulate
 
 def clearConsole():
     command = 'clear'
@@ -55,6 +57,22 @@ def words(letters):
         gList.remove([])
   return wList,gList, numWords
 
+def mTable(oList):
+  mLetters = len(max(oList,key=len))
+  if mLetters<20:
+    nTable=[[] for i in range(mLetters)]
+  else:
+    nTable=[[] for i in range(20)]
+  r = len(nTable)
+  for i in oList:
+    numC = ceil(len(i)/20)
+    for j in range(numC):
+      for k in range(r):
+        if (j*r+k)<len(i):
+          nTable[k]+= [i[j*20+k]]
+        else:
+          nTable[k] +=[""]
+  return nTable
 
 with open('words_alpha.txt') as f:
 	my_list = [x.rstrip() for x in f if len(x) > 5 and len(x)<10]
@@ -79,14 +97,9 @@ while NewGame:
   while Continue and wGuessed!=tWords:
     print("\033[H\033[J",end="")
     print(word)
-    mLetters = len(max(answers,key=len))
-    for i in range(mLetters/2):
-      pGuess = ""
-      count = 0
-      for j in guesses:
-        if i<len(j):
-          pGuess+=j[i]+"\t\t"
-      print(pGuess)
+    pGuess = mTable(guesses)
+    
+    print(tabulate(pGuess))
 
     #print(guesses)
     print("\nYou have guessed {0} out of {2} words! \n{1:.2f}% there ".format(wGuessed, wGuessed*100 / tWords, tWords)) 
@@ -107,6 +120,10 @@ while NewGame:
         hints-=1
       else:
         print("Out of hints")
+    elif guess=="0":
+        pAnswers = mTable(answers)
+        print(tabulate(pAnswers))
+        Continue= False
     elif guess in guesses[len(guess)-3]:
       print("You guessed this already!")
     elif guess in answers[len(guess)-3]:
@@ -115,27 +132,18 @@ while NewGame:
       tGuessed[len(guess)-3]+=1
 
       print("Good job!")
-    else:
-      if guess=="0":
-        for i in range(len(max(answers,key=len))):
-          pAnswers = ""
-          for j in range(len(answers)):
-            if i<len(answers[j]):
-              if answers[j][i] not in guesses[j]:
-                pAnswers+=answers[j][i]+"\t\t"
-              else:
-                pAnswers+="\t\t"
-          print(pAnswers)
-        Continue= False
+    
         
 
-      else:
-        print("Not quite!")
+    else:
+      print("Not quite!")
     
     sleep(.25)
 
   
   if wGuessed==tWords:
+    pAnswers = mTable(answers)
+    print(tabulate(pAnswers))
     print("Congrats you guesed them all!")
     sleep(.5)
   

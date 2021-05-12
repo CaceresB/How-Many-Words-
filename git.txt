@@ -1,8 +1,8 @@
-Fixed hint button & indexing issues
+Fixed printing formatting
 
 Next:
-- Figure out a working dictionary option
+- customization of game: length of word, length of words to guess, etc)
 
 Other:
-- Find a better way to print formatting (dividing longest by 2 and then printing based on that)
-- customization of game: length of word, length of words to guess, etc)
+- Figure out a working dictionary option
+

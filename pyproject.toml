@@ -9,6 +9,7 @@ python = "^3.8"
 sitechantment = "^0.1.0"
 better-profanity = "^0.7.0"
 pydictionary = "^2.0.1"
+tabulate = "^0.8.9"
 
 [tool.poetry.dev-dependencies]
 
